@@ -41,7 +41,7 @@ class TipWindow : public QDialog
 
 public:
 
-  TipWindow();
+  TipWindow(const QString &swallowCaption);
 
 public slots:
 
@@ -77,7 +77,7 @@ public:
   TipApp(int argc, char *argv[]);
   ~TipApp();
 
-  void start();
+  void start(const QString &swallowCaption);
 
 
 private:

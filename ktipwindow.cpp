@@ -49,10 +49,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "ktipwindow.moc"
 
 
-TipWindow::TipWindow()
+TipWindow::TipWindow(const QString &swallowCaption)
   : QDialog(0,0,TRUE)
 {
-  setCaption(i18n("Kandalf's useful tips"));
+  if (!swallowCaption.isEmpty()) {
+    setCaption(swallowCaption);
+  } else {
+    setCaption(i18n("Kandalf's useful tips"));
+  }
 
   QVBoxLayout *vbox = new QVBoxLayout(this, 4);
 
@@ -205,9 +209,9 @@ void TipWindow::prevTip()
   text->setText(tips.at(current));
 }
 
-void TipApp::start()
+void TipApp::start(const QString &swallowCaption)
 {
-  window = new TipWindow;
+  window = new TipWindow(swallowCaption);
   setMainWidget(window);
   window->show();
 }
@@ -228,11 +232,20 @@ int main(int argc, char *argv[])
   srand(time(NULL));
 
   bool isInit = false;
+  QString swallowCaption;
   for (int i=1; i<argc; i++) {
     if (strcmp(argv[i], "-init") == 0) {
       isInit = true;
-      break;
+      continue;
     }
+    if (i < argc - 1 && strcmp(argv[i], "-swallow") == 0) {
+      swallowCaption = argv[i+1];
+      continue;
+    }
+  }
+  if (isInit && !swallowCaption.isEmpty()) {
+    puts("You poor, misguided soul, can't both swallow and init");
+    isInit = false;
   }
 
   TipApp app(argc, argv);
@@ -244,7 +257,7 @@ int main(int argc, char *argv[])
       return 0;
     }
   }
-  app.start();
+  app.start(swallowCaption);
 
   return 0;
 }
