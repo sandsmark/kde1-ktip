@@ -1,0 +1,382 @@
+<tip>
+<html>
+You can minimize all your windows on the current desktop at once and
+thus reach the desktop itself by clicking on the desktop icon on the
+panel.<br>
+<center>
+<img src="hicolor/48x48/filesystems/desktop.png">
+</center>
+</html>
+</tip>
+
+<tip>
+<html>
+If you temporarily need more screen real-estate, you can <strong>"fold
+in" the panel</strong> by clicking on one of the arrows to the far left
+or far right. Alternatively, make it auto-hide
+(Preferences/Look&Feel/Panel/Panel).
+</html>
+</tip>
+
+<tip>
+<html>
+The program klipper, which is started by default and resides in the
+system tray at the right end of the panel, keeps a number of text
+selections around that you can retrieve or even (e.g., in the case of
+URLs) execute.<br>
+<center>
+<img src="hicolor/48x48/apps/klipper.png">
+</center>
+</html>
+</tip>
+
+<tip>
+<html>
+The window list, which is accessible via an icon on the panel, provides a
+quick overview over all windows on all virtual desktops.<br>
+<center>
+<img src="hicolor/48x48/apps/window_list.png">
+</center>
+</html>
+</tip>
+
+<tip>
+<html>
+You can configure the number of virtual desktops by selecting
+Preferences/Look&Feel/Desktop/NumberName from the K menu.
+</html>
+</tip>
+
+<tip>
+<html>
+The KDE project was founded in October 1996 and had its first release,
+1.0, on July 12, 1998.
+</html>
+</tip>
+
+<tip>
+<html>
+You can support the KDE project with work (programming, designing,
+documenting, proof-reading, translating, etc.) and financial or
+hardware donations. Please contact mailto:kde-ev@kde.org if you are
+interested.
+</html>
+</tip>
+
+<tip>
+<html>
+Clicking with the middle mouse button on the maximize button of a
+window maximizes the window vertically, but not horizontally.
+</html>
+</tip>
+
+<tip>
+<html>
+Clicking with the right mouse button on the maximize button of a
+window maximizes the window horizontally, but not vertically.
+</html>
+</tip>
+
+<tip>
+<html>
+KDE is based on a well-designed C++ foundation. C++ is a programming
+language well suited to desktop development. The KDE object model
+extends the power of C++ even further. See http://developer.kde.org
+for details.
+</html>
+</tip>
+
+<tip>
+<html>
+You can stay up to date with new developments in KDE by regularly
+checking the web site http://www.kde.org.
+</html>
+</tip>
+
+<tip>
+<html>
+If you want to try an alternative desktop to KDE, check
+http://udeproject.sourceforge.net.
+</html>
+</tip>
+
+<tip>
+<html>
+Unlike other programmers, KDE programmers drink more tea than coffee.
+</html>
+</tip>
+
+<tip>
+<html>
+You can use Konqueror to <strong>browse through tar archives</strong>,
+even compressed ones. You can extract files simply by dragging them
+to another place, e.g. another Konqueror window or the desktop.
+</html>
+</tip>
+
+<tip>
+<html>
+Double-clicking on the titlebar of any window "shades" it, which means
+that only the titlebar stays visible. Double-clicking the titlebar a
+second time will make the window visible again.<br>
+Of course, you can change this behavior by using the Control Center.
+</html>
+</tip>
+
+<tip>
+<html>
+You can cycle through the windows on a virtual desktop by holding the
+Alt key and pressing Tab or Shift-Tab.
+</html>
+</tip>
+
+<tip>
+<html>
+You can cycle through the virtual desktops by holding the Ctrl key and
+pressing Tab or Shift-Tab.
+</html>
+</tip>
+
+<tip>
+<html>
+KDE's help system can not only display KDE's own HTML-based help, but
+also legacy info and man pages.<br>
+<center>
+<img src="hicolor/48x48/apps/kdehelp.png">
+</html>
+</tip>
+
+<tip>
+<html>
+Clicking with the right mouse button on panel icons or applets opens a
+popup menu that allows you to move or remove the item, or add a new one.
+</html>
+</tip>
+
+<tip>
+<html>
+If a toolbar is not large enough to display all buttons on it, you can
+click on the small arrow at the far right end of the toolbar to see
+the remaining buttons.
+</html>
+</tip>
+
+<tip>
+<html>
+You can without problems run legacy X applications on a KDE
+desktop. It is even possible to integrate these into the menu system.
+The KDE program "kappfinder" will look for known programs to integrate
+them into the menu.
+</html>
+</tip>
+
+<tip>
+<html>
+You can quickly move the panel to another screen edge by "grabbing" it with
+the left mouse button and moving it to where you want it.
+</html>
+</tip>
+
+<tip>
+<html>
+If you need to kill some time, KDE comes with an extensive collection
+of games.
+<center>
+<img src="hicolor/48x48/apps/kshisen.png">
+</html>
+</tip>
+
+<tip>
+<html>
+You can <strong>quickly change the background</strong> image of the
+desktop by dragging a graphics image from a Konqueror window to the
+desktop background.
+</html>
+</tip>
+
+<tip>
+<html>
+You can change the background color of the desktop by dragging a color
+from a color selector in any application to the desktop background.
+</html>
+</tip>
+
+<tip>
+<html>
+A fast way to get your favorite application onto your panel is to
+right-click the panel (Panel Menu) and select Add/Application/whatever.
+</html>
+</tip>
+
+<tip>
+<html>
+You can add more applets to your panel by selecting Panel
+Menu/Add/Applet from the K menu.
+</html>
+</tip>
+
+<tip>
+<html>
+You can add a little command line to your panel by selecting Panel
+Menu/Add/Applet/Application Launcher from the K menu.
+</html>
+</tip>
+
+<tip>
+<html>
+If you know its name, you can <strong>execute any program</strong> by hitting
+<strong>Alt-F2</strong>
+and entering the program name in the command-line window provided.
+<center>
+<img src="hicolor/48x48/apps/go.png">
+</html>
+</tip>
+
+<tip>
+<html>
+You can <strong>browse any URL</strong> by hitting
+<strong>Alt-F2</strong> and entering the URL in the
+command-line window provided.
+<center>
+<img src="hicolor/48x48/filesystems/ftp.png">
+</html>
+</tip>
+
+<tip>
+<html>
+You can access a certain <strong>man page</strong> by entering a
+hash mark (#) and the name of the man page whereever you can enter
+a URL, like in the URL line of the web browser or the
+<strong>Alt-F2</strong> command-line.
+<center>
+<img src="hicolor/48x48/apps/kdehelp.png">
+</html>
+</tip>
+
+<tip>
+<html>
+You can access a certain <strong>info page</strong> by entering a hash mark (#) and the
+name of the info page whereever you can enter a URL, like in the URL
+line of the web browser or the <strong>Alt-F2</strong> command-line.
+<center>
+<img src="hicolor/48x48/apps/kdehelp.png">
+</html>
+</tip>
+
+<tip>
+<html>
+If you can't access the titlebar, you can still <strong>move a window</strong>
+on the screen by holding the Alt key, clicking anywhere into the window
+and "dragging" it with the mouse.<br>
+Of course, you can change this behavior by using the Control Center.
+</html>
+</tip>
+
+<tip>
+<html>
+You can <strong>resize a window</strong> on the screen by holding the Alt key,
+right-clicking anywhere into the window and moving the mouse.
+</html>
+</tip>
+
+<tip>
+<html>
+KDE's mail client provides seamless <strong>PGP integration</strong>
+for encrypting and signing your email messages.
+</html>
+</tip>
+
+<tip>
+<html>
+You can choose <strong>country-specific settings</strong> for things like
+currency symbols, number formats, etc. by selecting
+Preferences/Personalization/Country & Language in the K Menu.
+</html>
+</tip>
+
+<tip>
+<html>
+You can find KDE developers all over the world, e.g., in Germany,
+Sweden, France, Canada, USA, Australia, Namibia, Argentina, even in
+Norway!
+</html>
+</tip>
+
+<tip>
+<html>
+KDE's CD player accesses the Internet CD database CDDB to provide you
+with title/track information.
+</html>
+</tip>
+
+<tip>
+<html>
+You can change the style of the window decorations by clicking with
+the right mouse button on the titlebar of a window and selecting a
+style from the <em>Decoration</em> submenu.
+</html>
+</tip>
+
+<tip>
+<html>
+Some people open many terminal windows just to enter <em>one single</em>
+command.
+<ul>
+<li>Use <strong>Alt-F2</strong> for just firing programs (Alt-F2 "kword") or
+<li>use konsole sessions ("New" in toolbar) if you need text output.
+</ul>
+</html>
+</tip>
+
+<tip>
+<html>
+You can change the color of the window titlebars by selecting
+<em>Preferences/Look&Feel/Color</em> from the K menu.
+</html>
+</tip>
+
+<tip>
+<html>
+KDE does not contain any GPL'd code that is copyrighted by the Free Software
+Foundation.
+</html>
+</tip>
+
+<tip>
+<html>
+The difference between window manager styles and old-fashioned themes is
+that the former even reflect window titlebar color settings from the
+control center and might implement different features.
+</html>
+</tip>
+
+<tip>
+<html>
+The K in KDE stands for nothing. It is the first character in the
+Latin alphabet before the L which stands for Linux. It was chosen
+because KDE runs on many Unices (and just perfect on FreeBSD).
+</html>
+</tip>
+
+<tip>
+<html>
+KDE is a Czech word meaning "where".
+</html>
+</tip>
+
+<tip>
+<html>
+If you choose the <em>"B II"</em> window decoration, it will move the
+title bars if you maximise several windows to make sure they are all
+visible.
+</html>
+</tip>
+
+<tip>
+<html>
+If you want to contribute your own "tip of the day", please send it to
+kalle@kde.org, and we'll be happy to integrate it for the next
+release.<br>
+(This is the last tip in the tips database, next will be the first again.)
+</html>
+</tip>
