@@ -50,7 +50,7 @@ target_link_libraries(ktip
 install(TARGETS ktip RUNTIME DESTINATION ${KDE1_BINDIR})
 
 install_icon(ktip.xpm)
-install(FILES ktip.kdelnk DESTINATION ${KDE1_APPSDIR})
+install(FILES ktip.kdelnk DESTINATION ${KDE1_APPSDIR}/Settings/)
 
 install(FILES
     pics/wizard.gif

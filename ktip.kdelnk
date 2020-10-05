@@ -29,3 +29,4 @@ Icon=ktip
 Type=Application
 Comment=
 Terminal=0
+NoSwallow=true
