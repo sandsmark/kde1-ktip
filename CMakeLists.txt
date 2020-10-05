@@ -53,6 +53,11 @@ install_icon(ktip.xpm)
 install(FILES ktip.kdelnk DESTINATION ${KDE1_APPSDIR})
 
 install(FILES
+    pics/wizard.gif
+    DESTINATION ${KDE1_DATADIR}/ktip/pics/
+)
+
+install(FILES
     data/buttcoin
     data/dhammapada
     data/mechanicus

@@ -68,7 +68,7 @@ TipWindow::TipWindow()
 
   QLabel *l = new QLabel(this);
   l->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-  QPixmap image(kapp->getIconLoader()->loadIcon(kapp->kde_datadir()+"/kdewizard/html/wizard.gif"));
+  QPixmap image(kapp->getIconLoader()->loadIcon("wizard.gif"));
   l->setPixmap(image);
   l->setFixedSize(image.size());
   hbox->addWidget(l,2);
