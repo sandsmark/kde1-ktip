@@ -23,6 +23,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 #include <stdlib.h>
+#include <time.h>
+
+#include <algorithm>
 
 
 #include <qapp.h>
@@ -30,71 +33,69 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <qcheckbox.h>
 #include <qpushbutton.h>
 #include <qlayout.h>
-#include <qtextbrowser.h>
 #include <qlabel.h>
 #include <qfile.h>
 #include <qtextstream.h>
+#include <qdir.h>
 
 
 #include <kapp.h>
-#include <kuniqueapp.h>
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <kglobal.h>
+#include <kapp.h>
 #include <klocale.h>
 #include <kconfig.h>
-#include <kmessagebox.h>
 #include <kiconloader.h>
-#include <kstddirs.h>
-#include <kwin.h>
 
 
 #include "ktipwindow.moc"
 
 
 TipWindow::TipWindow()
-  : KDialog(0,0,false)
+  : QDialog(0,0,TRUE)
 {
-    
-  KWin::setState( winId(), NET::StaysOnTop );
   setCaption(i18n("Kandalf's useful tips"));
 
   QVBoxLayout *vbox = new QVBoxLayout(this, 4);
 
-  QHBoxLayout *hbox = new QHBoxLayout(vbox, 4);
+  QHBoxLayout *hbox = new QHBoxLayout(4);
+  vbox->addLayout(hbox, 5);
 
-  text = new QTextBrowser(this);
-  text->mimeSourceFactory()->addFilePath(KGlobal::dirs()->findResourceDir("data", "kdewizard/pics")+"kdewizard/pics/");
-  QStringList icons = KGlobal::dirs()->resourceDirs("icon");
-  QStringList::Iterator it;
-  for (it = icons.begin(); it != icons.end(); ++it)
-    text->mimeSourceFactory()->addFilePath(*it);
-  hbox->addWidget(text);
+  text = new QLabel(this);
+  text->setAlignment(WordBreak | AlignTop | AlignLeft);
+  text->setMargin(10);
+  text->setBackgroundColor(white);
+
+  hbox->addWidget(text,1);
 
   QLabel *l = new QLabel(this);
   l->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-  l->setPixmap(locate("data", "kdewizard/pics/wizard_small.png"));
-  l->setBackgroundColor(Qt::white);
-  hbox->addWidget(l);
+  QPixmap image(kapp->getIconLoader()->loadIcon(kapp->kde_datadir()+"/kdewizard/html/wizard.gif"));
+  l->setPixmap(image);
+  l->setFixedSize(image.size());
+  hbox->addWidget(l,2);
 
   QFrame *f = new QFrame(this);
   f->setFrameStyle(QFrame::HLine | QFrame::Sunken);
-  vbox->addWidget(f);
+  vbox->addWidget(f,1);
 
-  hbox = new QHBoxLayout(vbox, 4);
+  hbox = new QHBoxLayout(4);
+  vbox->addLayout(hbox, 1);
 
   startup = new QCheckBox(i18n("Run on startup"), this);
-  hbox->addWidget(startup, 1);
+  startup->setFixedHeight(startup->height());
+  hbox->addWidget(startup, 2);
 
   prev = new QPushButton(i18n("&Previous"), this);
-  hbox->addWidget(prev);
+  prev->setFixedHeight(prev->height());
+  hbox->addWidget(prev, 1);
 
   next = new QPushButton(i18n("&Next"), this);
-  hbox->addWidget(next);
+  next->setFixedHeight(next->height());
+  hbox->addWidget(next, 1);
 
   ok = new QPushButton(i18n("&OK"), this);
+  ok->setFixedHeight(ok->height());
   ok->setDefault(true);
-  hbox->addWidget(ok);
+  hbox->addWidget(ok, 1);
 
   connect(next, SIGNAL(clicked()), this, SLOT(nextTip()));
   connect(prev, SIGNAL(clicked()), this, SLOT(prevTip()));
@@ -104,12 +105,16 @@ TipWindow::TipWindow()
   resize(550, 230);
 
   loadTips();
+  if (!tips.empty()) {
+      current = rand() % tips.size();
+  } else {
+      warning("Failed to load tips");
+  }
 
-  current = kapp->random() % tips.count();
 
-  KConfig *config = new KConfig("kdewizardrc", true);
-  config->setGroup("General");
-  startup->setChecked(config->readBoolEntry("TipsOnStart", true));
+  KConfig config("kdewizardrc");
+  config.setGroup("General");
+  startup->setChecked(config.readBoolEntry("TipsOnStart", true));
 
   nextTip();
 }
@@ -117,10 +122,10 @@ TipWindow::TipWindow()
 
 void TipWindow::startupClicked()
 {
-  KConfig *config = new KConfig("kdewizardrc");
-  config->setGroup("General");
-  config->writeEntry("TipsOnStart", startup->isChecked());
-  config->sync();
+  KConfig config("kdewizardrc");
+  config.setGroup("General");
+  config.writeEntry("TipsOnStart", startup->isChecked());
+  config.sync();
 }
 
 
@@ -129,14 +134,23 @@ void TipWindow::startupClicked()
 // text as done here.
 void TipWindow::loadTips()
 {
-  QString fname;
+  tips.clear();
+  const QString dirname = kapp->kde_datadir()+"/ktip/tips/";
+  QDir dir(dirname);
+  dir.setFilter(QDir::Files);
+  for (unsigned i=0; i<dir.count(); i++) {
+    loadFile(dirname + dir[i]);
+  }
+  if (tips.empty()) {
+      tips.push_back(i18n("Failed to load tips."));
+  }
+  std::random_shuffle(tips.begin(), tips.end());
+}
 
-  fname = locate("data", QString("kdewizard/tips"));
-
+void TipWindow::loadFile(const QString &fname)
+{
   if (fname.isEmpty())
     return;
-
-  tips.clear();
 
   QFile f(fname);
   if (f.open(IO_ReadOnly))
@@ -149,25 +163,17 @@ void TipWindow::loadTips()
 	{
 	  line = ts.readLine();
 	  tag = line.stripWhiteSpace().lower();
-	
-	  if (tag == "<html>")
-	    {
-	      inTip = true;
-	      tip = QString::null;
-	      continue;
-	    }
-	
-	  if (inTip)
-	    {
-	      if (tag == "</html>")
-		{
-		  tips.append(tip);
-		  inTip = false;
-		}
-	      else
-		tip.append(line).append("\n");
-	    }
-
+          if (tag == "%") {
+              tip = tip.stripWhiteSpace();
+              if (tip.isEmpty()) {
+                  tip = "";
+                  continue;
+              }
+              tips.push_back(tip);
+              tip = "";
+          } else {
+              tip.append(line).append("\n");
+          }
 	}
 
       f.close();
@@ -178,9 +184,10 @@ void TipWindow::loadTips()
 void TipWindow::nextTip()
 {
   current += 1;
-  if (current >= tips.count())
+  if (current >= tips.size())
     current = 0;
-  text->setText(QString("<html>%1</html>").arg(i18n(tips[current].latin1())));
+
+  text->setText(tips.at(current));
 }
 
 
@@ -188,12 +195,13 @@ void TipWindow::prevTip()
 {
   current -= 1;
   if (current < 0)
-    current = tips.count()-1;
-  text->setText(QString("<html>%1</html>").arg(i18n(tips[current].latin1())));
+    current = tips.size()-1;
+
+  text->setText(tips.at(current));
 }
 
 
-TipApp::TipApp() : KUniqueApplication()
+TipApp::TipApp(int argc, char *argv[]) : KApplication(argc, argv)
 {
   window = new TipWindow;
   window->show();
@@ -209,22 +217,10 @@ TipApp::~TipApp()
   delete window;
 }
 
-
-static const char *description = I18N_NOOP("Kandalf's tips");
-
-
 int main(int argc, char *argv[])
 {
-  KAboutData aboutData("ktip", I18N_NOOP("KTip"),
-    "0.2", description, KAboutData::License_GPL,
-    "(c) 1998-2000, KDE Developers");
-  KCmdLineArgs::init( argc, argv, &aboutData );
-  KUniqueApplication::addCmdLineOptions();
+  srand(time(NULL));
 
-  if (!KUniqueApplication::start())
-    exit(-1);
-
-  TipApp app;
-
+  TipApp app(argc, argv);
   return app.exec();
 }

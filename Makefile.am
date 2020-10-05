@@ -1,7 +1,5 @@
 INCLUDES = $(all_includes)
 
-SUBDIRS = pics
-
 bin_PROGRAMS = ktip
 ktip_SOURCES = ktipwindow.cpp
 ktip_LDADD = $(LIB_KDECORE) $(LIB_KDEUI) $(all_libraries) $(KDE_RPATH)

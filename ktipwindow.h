@@ -25,19 +25,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define __ktipwindow_h__
 
 
-#include <qstringlist.h>
+
+#include <qdialog.h>
+#include <kapp.h>
+#include <vector>
 
 
-#include <kdialog.h>
-#include <kuniqueapp.h>
-
-
-class QTextBrowser;
 class QCheckBox;
 class QPushButton;
 
 
-class TipWindow : public KDialog
+class TipWindow : public QDialog
 {
   Q_OBJECT
 
@@ -56,25 +54,26 @@ public slots:
 private:
 
   void loadTips();
+  void loadFile(const QString &filename);
 
-  QTextBrowser *text;
+  QLabel *text;
   QCheckBox    *startup;
   QPushButton  *next, *prev, *ok;
 
-  QStringList  tips;
+  std::vector<QString>  tips;
 
   int current;
 
 };
 
 
-class TipApp : public KUniqueApplication
+class TipApp : public KApplication
 {
   Q_OBJECT
 
 public:
 
-  TipApp();
+  TipApp(int argc, char *argv[]);
   ~TipApp();
 
   virtual int newInstance() { window->nextTip(); return 0; };
