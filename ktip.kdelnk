@@ -24,6 +24,7 @@ Name[sr]=Kandalfovi saveti
 Name[sv]=Kandalfs tips
 Name[zh_CN.GB2312]=Kandalf 的小技巧
 Exec=ktip
+Init=ktip -init
 Icon=ktip
 Type=Application
 Comment=

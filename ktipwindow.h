@@ -43,13 +43,14 @@ public:
 
   TipWindow();
 
-
 public slots:
 
   void nextTip();
   void prevTip();
   void startupClicked();
 
+protected:
+  void closeEvent(QCloseEvent *);
 
 private:
 
@@ -76,7 +77,7 @@ public:
   TipApp(int argc, char *argv[]);
   ~TipApp();
 
-  virtual int newInstance() { window->nextTip(); return 0; };
+  void start();
 
 
 private:

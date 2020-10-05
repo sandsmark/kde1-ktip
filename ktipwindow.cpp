@@ -119,6 +119,11 @@ TipWindow::TipWindow()
   nextTip();
 }
 
+void TipWindow::closeEvent(QCloseEvent *e)
+{
+  QDialog::closeEvent(e);
+  kapp->quit();
+}
 
 void TipWindow::startupClicked()
 {
@@ -200,15 +205,16 @@ void TipWindow::prevTip()
   text->setText(tips.at(current));
 }
 
+void TipApp::start()
+{
+  window = new TipWindow;
+  setMainWidget(window);
+  window->show();
+}
 
 TipApp::TipApp(int argc, char *argv[]) : KApplication(argc, argv)
 {
-  window = new TipWindow;
-  window->show();
-
-  setMainWidget(window);
-
-  connect(this, SIGNAL(lastWindowClosed()), this, SLOT(quit()));
+  window = NULL;
 }
 
 
@@ -221,6 +227,24 @@ int main(int argc, char *argv[])
 {
   srand(time(NULL));
 
+  bool isInit = false;
+  for (int i=1; i<argc; i++) {
+    if (strcmp(argv[i], "-init") == 0) {
+      isInit = true;
+      break;
+    }
+  }
+
   TipApp app(argc, argv);
-  return app.exec();
+  if (isInit) {
+    KConfig config("kdewizardrc");
+    config.setGroup("General");
+
+    if (!(config.readBoolEntry("TipsOnStart", true))) {
+      return 0;
+    }
+  }
+  app.start();
+
+  return 0;
 }
