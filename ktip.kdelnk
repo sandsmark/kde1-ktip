@@ -26,6 +26,7 @@ Name[zh_CN.GB2312]=Kandalf 的小技巧
 Exec=ktip
 Init=ktip -init
 Icon=ktip
+MiniIcon=ktip
 Type=Application
 Comment=
 Terminal=0
