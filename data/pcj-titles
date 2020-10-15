@@ -108,9 +108,9 @@ It turns out that a lot of NPM traffic sends the referer as install which is inv
 %
 [gif] Gopher demonstrates how easy it is to create a type safe Set data type in Go - golang-nuts
 %
-The Squarespace website expired page loads 9.22 MiB of assets (2.29 MiB gzipped) in order to display &lt;20 words in total (not a thing is rendered until that 9.22 MiB are fully loaded).
+The Squarespace website expired page loads 9.22 MiB of assets (2.29 MiB gzipped) in order to display <20 words in total (not a thing is rendered until that 9.22 MiB are fully loaded).
 %
-&lt;--- Upvote for Rust. The Most Loved Language for the 3rd Year in a Row.
+<--- Upvote for Rust. The Most Loved Language for the 3rd Year in a Row.
 %
 Before and After Google (x-post /r/ProgrammerHumor)
 %
@@ -152,7 +152,7 @@ I'm always on the bleeding edge of products I use and extremely tolerant about c
 %
 Thank God for Silicon Valley right now... The world is about to unleash a wave of absolutely unprecedented technology innovation over the next 2-3 years.
 %
-tensorflow didn't work on [Python] 3.7 for a solid 8 months because some people at google very unwisely decided that `async` and `await` were great choices for variable names, despite PEP492 landing in 2015.
+tensorflow didn't work on [Python] 3.7 for a solid 8 months because some people at google very unwisely decided that 'async' and 'await' were great choices for variable names, despite PEP492 landing in 2015.
 %
 I am perfectly capable of maintaining python 2 myself.
 %
@@ -160,9 +160,9 @@ Poorly written library. Please delete this repository.
 %
 Go is not approved [by Google]
 %
-Turtle Browser: A super minimalist, lightweight &amp; highly optimized browser based on Electron using jQuery
+Turtle Browser: A super minimalist, lightweight & highly optimized browser based on Electron using jQuery
 %
-Did you know the logical operator `&&` can be replaced by a comma operator?
+Did you know the logical operator '&&' can be replaced by a comma operator?
 %
 Incredibly mathematically smart programmers can get away with not using version control
 %
