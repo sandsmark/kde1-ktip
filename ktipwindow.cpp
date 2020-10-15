@@ -66,12 +66,14 @@ TipWindow::TipWindow(const QString &swallowCaption)
   text = new QLabel(this);
   text->setAlignment(WordBreak | AlignTop | AlignLeft);
   text->setMargin(10);
+  text->setFrameStyle(QFrame::Panel | QFrame::Sunken);
   text->setBackgroundColor(white);
 
-  hbox->addWidget(text,1);
+  hbox->addWidget(text,2);
 
   QLabel *l = new QLabel(this);
   l->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+  l->setBackgroundColor(white);
   QPixmap image(kapp->getIconLoader()->loadIcon("wizard.gif"));
   l->setPixmap(image);
   l->setFixedSize(image.size());
@@ -106,7 +108,7 @@ TipWindow::TipWindow(const QString &swallowCaption)
   connect(ok, SIGNAL(clicked()), kapp, SLOT(quit()));
   connect(startup, SIGNAL(clicked()), this, SLOT(startupClicked()));
 
-  resize(550, 230);
+  resize(600, 230);
 
   loadTips();
   if (!tips.empty()) {
