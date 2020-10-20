@@ -17,7 +17,6 @@ include(CMakePackageConfigHelpers)
 include(Qt1Macros)
 include(KDE1Macros)
 include(KDE1InstallDirs)
-include(GNUInstallDirs)
 
 option(ENABLE_SANITIZERS "Enable runtime sanitizing (for development)")
 if (ENABLE_SANITIZERS)
@@ -74,5 +73,5 @@ install(FILES
 install(FILES
     ktip.desktop
 
-    DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart/
+    DESTINATION etc/xdg/autostart/
 )
