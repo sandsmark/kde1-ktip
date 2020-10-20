@@ -1,0 +1,33 @@
+# KDE Config File 
+[KDE Desktop Entry]
+Name=Kandalf's tips
+Name[ca]=Pistes de Kandalf
+Name[cs]=Kandalfovy tipy
+Name[da]=Kandalf's vink
+Name[de]=Kandalfs Tipps
+Name[el]=Συμβουλές του Kandalf
+Name[eo]=Helpindikoj de Kandalfo
+Name[et]=Kandalfi vihjed
+Name[fi]=Kandalfin vinkit
+Name[fr]=Conseils de Kandalf
+Name[he]=Kandalf לש תוצעה
+Name[hu]=Kandalf tippjei
+Name[it]=Suggerimenti di Kandalf
+Name[ja]=Kandalfの一言
+Name[no]=Kandalf sine tips
+Name[no_NY]=Tips frå Kandalf
+Name[pt]=Dicas do Kandalf
+Name[pt_BR]=Dicas do Kandalf
+Name[ro]=Sfaturile Kandalf
+Name[sl]=Kandalfovi namigi
+Name[sr]=Kandalfovi saveti
+Name[sv]=Kandalfs tips
+Name[zh_CN.GB2312]=Kandalf 的小技巧
+Exec=ktip
+Init=ktip -init
+Icon=ktip.xpm
+MiniIcon=ktip.xpm
+Type=Application
+Comment=
+Terminal=false
+NoSwallow=true

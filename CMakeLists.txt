@@ -68,3 +68,10 @@ install(FILES
 
     DESTINATION ${KDE1_DATADIR}/ktip/tips/
 )
+
+# "Modern" autostart
+install(FILES
+    ktip.desktop
+
+    DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart/
+)
