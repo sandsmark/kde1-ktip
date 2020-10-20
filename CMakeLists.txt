@@ -73,5 +73,5 @@ install(FILES
 install(FILES
     ktip.desktop
 
-    DESTINATION etc/xdg/autostart/
+    DESTINATION /etc/xdg/autostart/
 )
