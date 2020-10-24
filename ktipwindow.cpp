@@ -237,6 +237,10 @@ int main(int argc, char *argv[])
   QString swallowCaption;
   for (int i=1; i<argc; i++) {
     if (strcmp(argv[i], "-init") == 0) {
+      // Don't block startup
+      if (fork()) {
+        exit(0);
+      }
       isInit = true;
       continue;
     }
